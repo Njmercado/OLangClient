@@ -1,0 +1,6 @@
+*He creado el proyecto Ola, antes se llamaba Olang, pero preferí cambiarlo.
+*He creado dos componentes:
+  - NavBar: muestra los short-links en la barra superior para moverse entre la pagina. Falta agregar esa funcionalidad.
+  - SideBar: es una barra lateral que se muestra solo cuado el boton del sidebar, el cual está en el NavBar pero solo cuando son pantallas pequeñas, y muestre exactamente lo mismo que el NavBar. Este SideBar tambien incluye el icono de la pagina.
+*Diseñé el icono de la pagina.
+*Creé la vista del Login. Es una sola vista, en ella se puede, tanto enviar el codigo al celular, como ingresar a la app en si.
