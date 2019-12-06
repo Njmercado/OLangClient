@@ -1,3 +1,4 @@
 * Cree la vista de registro.
 * Modifique la app para que se adapte a dispositivos moviles:
   - El 'NavBar' se cambiará por un 'SideBar' cuando detecte que no se encuentra en pantallas grandes(pc)
+* Creación del logo de la app
