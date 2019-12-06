@@ -38,7 +38,7 @@
                 filled 
                 rounded 
                 label="telefono" 
-                prepend-inner-icon="mdi-phone"
+                prepend-inner-icon="mdi-cellphone-android"
               >
               </v-text-field>
             </v-flex>
@@ -75,6 +75,7 @@
             style="background-color: #56A2D5; 
                    text-transform: lowercase" 
             dark 
+            rounded
             small
             :loading="loadButtonAnimation"
             @click="generarCodigo"
@@ -85,6 +86,7 @@
             style="background-color: #56A2D5; 
                    text-transform: lowercase" 
             dark 
+            rounded
             small
             v-if="habilitarFieldCodigo"
             @click="ingresar"
@@ -123,12 +125,20 @@
 
         //this.habilitarFieldCodigo = !this.this.habilitarFieldCodigo
         //this.loadButtonAnimation = !this.loadButtonAnimation
+
+
+        //Mientras implemento lo que está arriba, colocaré el siguiente
+        //codigo para ingresar a la ventana principal. Cabe recalcar que
+        //este codigo no vá acá, es temporal. Este codigo va en 'ingresar'
+        this.$router.push("/principal")
       },
       ingresar(){
         //Enviar el codigo, junto con el numero, al servidor y verificar 
         //que este usuario corresponde con el codigo generado.
         //Una vez hecho eso, entonces activo el router para mostrar la 
         //ventana principal.
+        
+        //this.$router.push("/principal")
       }
     },
     components:{

@@ -1,7 +1,7 @@
 <template >
 <div>
   <v-app-bar color="purple darken-4" dark app dense>
-    <v-toolbar-title>OLang</v-toolbar-title>
+    <v-toolbar-title>Ola</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items class="hidden-sm-and-down">
       <v-btn 
@@ -53,7 +53,7 @@ import SideBar from './SideBar.vue'
           {name: "funciones", to: "", icon: "mdi-shape-plus"},
           {name: "sobre mi", to: "", icon: "mdi-information-outline"},
           {name: "log in", to: "/login", icon: "mdi-login"},
-          {name: "sing up", to: "", icon: "mdi-account-plus-outline"},
+          {name: "sign up", to: "/sign-up", icon: "mdi-account-plus-outline"},
         ]
       }
     },
