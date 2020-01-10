@@ -1,6 +1,5 @@
 <template>
   <v-app>
-    <router-link to="/"></router-link>
     <transition>
       <router-view></router-view>
     </transition>
@@ -11,10 +10,34 @@
 
 export default {
   name: 'App',
-  components: {
-  },
   data: () => ({
     //
   }),
+  components:{
+  }
 };
 </script>
+
+<style>
+.overflow {
+  overflow-y: scroll
+}
+
+.custom--scroll::-webkit-scrollbar {
+  width: 8px;
+  border-radius: 16px
+}
+.custom--scroll::-webkit-scrollbar-track {
+  border-radius: 16px
+}
+.custom--scroll::-webkit-scrollbar-thumb {
+  background: lightgrey; 
+}
+.custom--scroll::-webkit-scrollbar-thumb:hover {
+  background: grey; 
+}
+
+.rounded {
+  border-radius: 16px;
+}
+</style>

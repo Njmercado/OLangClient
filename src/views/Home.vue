@@ -1,7 +1,5 @@
-<template >
-  <v-app>
+<template>
     <NavBar></NavBar>
-  </v-app>
 </template>
 
 <script>
@@ -11,7 +9,6 @@ import NavBar from '../components/Navbar.vue'
 
     name: "Home",
     methods:{
-
     },
     components:{
       NavBar

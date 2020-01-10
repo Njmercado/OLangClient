@@ -1,4 +1,20 @@
-* Cree la vista de registro.
-* Modifique la app para que se adapte a dispositivos moviles:
-  - El 'NavBar' se cambiará por un 'SideBar' cuando detecte que no se encuentra en pantallas grandes(pc)
-* Creación del logo de la app
+Principal:
+  * Modificaciones:
+    + Todos los componentes desarrollados para esta página has sido agregados.
+Componentes:
+  * Chat:
+    + Creado componente para entablar conversaciones.
+    + Insertado componente de opciones
+  * Opcions:
+    + Componente para poder mostrar opciones a cargar a la conversacion.
+  * Chats:
+    + Componente para poder mostrar todas los chats que el usuario tiene disponible.
+  * Info:
+    + Componente para poder mostrar información relevante sobre el animal al cual le corresponde el usario con el cual se esté conversando.
+    + La información es:
+      ~ Nombre cientifico
+      ~ Nombres populares
+      ~ Descripcion
+      ~ Cantidad total/aproximada de especies vivas.
+  * News:
+    + Este componente permite visualizar todas las noticias agregadas por usuarios.

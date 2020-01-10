@@ -2,38 +2,50 @@
   <v-container 
     fill-height 
     fluid 
-    column 
     style="background: linear-gradient(45deg,#7D6AE7,#56A2D5)"
+    height="100vh"
   >
-    <v-layout 
-      row 
-      align-center 
-      justify-center
+    <v-row>
+      <v-btn 
+        style="margin-left: 1em"
+        text 
+        icon 
+        dark
+        large
+        @click="goToHome"
+      >
+        <v-icon>
+          mdi-undo-variant
+        </v-icon>
+      </v-btn>
+    </v-row>
+
+    <v-row 
+      align='center'
+      justify='center'
     >
       <v-card 
-        width="300px" 
-        style="border-radius:15px"
+        style="border-radius:15px; margin-left: 1.5em"
       >
         <v-container>
-          <v-layout 
-            row 
-            justify-center 
-            aling-center
+          <v-row 
+            align='center'
+            justify='center'
           >
             <v-img 
               src="https://i.ibb.co/9nKzPKd/OLa.png" 
-              max-width="64" 
-              max-height="64"
+              max-width="100" 
+              max-height="100"
+              style="margin-top: 1em; margin-bottom: 1em"
             >
             </v-img>
-          </v-layout>
-          <v-layout 
-            row 
-            justify-center 
-            aling-center 
-            style="margin-top: 40px"
+          </v-row>
+          <v-row 
+            align='center'
+            justify='center'
+            style="margin-bottom: -5vh"
           >
-            <v-flex xs10>
+            <v-col cols="11">
               <v-text-field 
                 filled 
                 rounded 
@@ -41,14 +53,14 @@
                 prepend-inner-icon="mdi-cellphone-android"
               >
               </v-text-field>
-            </v-flex>
-          </v-layout>
-          <v-layout 
-            row 
-            justify-center 
-            align-center
+            </v-col>
+          </v-row>
+          <v-row 
+            align='center'
+            justify='center'
+            style="margin-bottom: -5vh"
           >
-            <v-flex xs10>
+            <v-col cols="11">
               <v-text-field 
                 label="codigo" 
                 prepend-inner-icon="mdi-fingerprint"
@@ -57,46 +69,50 @@
                 :disabled="!habilitarFieldCodigo"
               >
               </v-text-field>
-            </v-flex>
-          </v-layout>
-          <v-layout justify-center>
-            <v-flex xs10>
+            </v-col>
+          </v-row>
+          <v-row 
+            justify='center'
+            style="margin-bottom: -5vh"
+          >
+            <v-col cols="11">
               <v-select 
                 label="recibir codigo por" 
                 :items="recibirCodigoPorOptions" 
+                filled
+                rounded
+                dense
               >
               </v-select>
-            </v-flex>
-          </v-layout>
+            </v-col>
+          </v-row>
         </v-container>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn 
             style="background-color: #56A2D5; 
                    text-transform: lowercase" 
-            dark 
-            rounded
-            small
             :loading="loadButtonAnimation"
             @click="generarCodigo"
+            dark 
+            rounded
           >
-            enviar código
+            send code
           </v-btn>
           <v-btn 
             style="background-color: #56A2D5; 
                    text-transform: lowercase" 
-            dark 
-            rounded
-            small
             v-if="habilitarFieldCodigo"
             @click="ingresar"
+            dark 
+            rounded
           >
-            Ingresar
+            login
           </v-btn>
-
+          <v-spacer></v-spacer>
         </v-card-actions>
       </v-card>
-    </v-layout>
+    </v-row>
   </v-container>
 </template>
 
@@ -139,6 +155,9 @@
         //ventana principal.
         
         //this.$router.push("/principal")
+      },
+      goToHome(){
+        this.$router.push('/')
       }
     },
     components:{
