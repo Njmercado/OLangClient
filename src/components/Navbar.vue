@@ -30,17 +30,17 @@
           >
         </v-app-bar-nav-icon>
     </v-app-bar>
-    <SideBar
+    <SideBarLinks
       v-if="openCloseSideBar"
       :routes="routes"
       v-bind:openCloseSideBar.sync="openCloseSideBar"
       >
-    </SideBar>
+    </SideBarLinks>
   </div>
 </template>
 
 <script>
-import SideBar from './SideBar.vue'
+import SideBarLinks from './SideBarLinks.vue'
 
 export default {
 
@@ -67,7 +67,7 @@ export default {
     }
   },
   components:{
-    SideBar
+    SideBarLinks
   }
 }
 </script>

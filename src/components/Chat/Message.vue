@@ -1,8 +1,8 @@
 <template>
   <v-container>
     <v-row :justify="justify">
-      <div class="message" :style="styles">
-        hola aadsf asf adsf dsfa adf a fa asdf adf adsf asf :w
+      <div class="message" :style="styles" v-if="message.length > 0">
+        {{message}}
       </div>
     </v-row>
   </v-container>
@@ -14,17 +14,15 @@ export default {
   props:[
     'message',
     'color',
-    'type'
+    'type',
+    'messageId'
   ],
   data: () => ({
     id: null
   }),
   computed:{
     justify(){
-      if(this.type == "sent") {
-        return "end" 
-      }
-      return "start"
+      return this.type === "sent"? "end": "start"
     },
     styles(){
 
@@ -47,5 +45,6 @@ export default {
   max-width: 70%;
   width: auto;
   padding: 1vh 1.5vh 1vh 1.5vh;
+  margin-top: -1.4em;
 }
 </style>

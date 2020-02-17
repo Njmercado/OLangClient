@@ -8,18 +8,18 @@
       <v-btn
         style="width: 3em; height: 3em"
         v-model="openCloseOptions"
-        color="deep-purple lighten-2"
-        dark
-        fab
+        color="purple darken-2"
+        dark fab
       >
         <v-icon style="transform: rotate(45deg)">attach_file</v-icon>
       </v-btn>
     </template>
     <v-btn
+      style="width: 2.5em; height: 2.5em"
       v-for="(option, index) in options"
       :key="index"
-      style="width: 2.5em; height: 2.5em"
-      fab
+      :color="option.color"
+      fab dark
     >
       <v-icon small>
         {{ option.icon }}
@@ -34,8 +34,8 @@ export default {
   data: () => ({
     openCloseOptions: false,
     options: [
-      { icon: "code" },
-      { icon: "image" }
+      { icon: "code", color: "red lighten-1" },
+      { icon: "image", color: "blue lighten-1" }
     ]
   }),
   methods:{

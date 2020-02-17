@@ -36,7 +36,7 @@
         small
         dark
       >
-        <v-icon>mdi-power</v-icon>
+        <v-icon>mdi-newspaper</v-icon>
       </v-btn>
     </v-footer>
   </v-navigation-drawer>

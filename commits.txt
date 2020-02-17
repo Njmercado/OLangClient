@@ -1,20 +1,22 @@
-Principal:
-  * Modificaciones:
-    + Todos los componentes desarrollados para esta página has sido agregados.
-Componentes:
-  * Chat:
-    + Creado componente para entablar conversaciones.
-    + Insertado componente de opciones
-  * Opcions:
-    + Componente para poder mostrar opciones a cargar a la conversacion.
-  * Chats:
-    + Componente para poder mostrar todas los chats que el usuario tiene disponible.
-  * Info:
-    + Componente para poder mostrar información relevante sobre el animal al cual le corresponde el usario con el cual se esté conversando.
-    + La información es:
-      ~ Nombre cientifico
-      ~ Nombres populares
-      ~ Descripcion
-      ~ Cantidad total/aproximada de especies vivas.
-  * News:
-    + Este componente permite visualizar todas las noticias agregadas por usuarios.
+Modificaciones
+  General:
+    - Cambiado el ícono de la página
+  Views:
+    SignUp:
+      + Agregado componente para poder realizar la selección de la especie que se desee seleccionar.
+  Components:
+    Setting:
+      + Componente creado para poder realizar configuraciones de la cuenta.
+      + Las configuraciones son:
+        + Cerrar sesion.
+        + Cambiar contraseña.
+        + Cambiar lenguaje.
+    ChangePasswordModal:
+      + Componente creado para poder realizar el cambio de la contraseña.
+    ChangeLanguageModal:
+      + Componente creado para poder realizar el cambio del lenguaje que tenga el actual usuario.
+    SearchUserModal:
+      + Componente creado para poder realizar busquedas de los usuarios actuales y entablar alguna conversacion.
+    ShowAnimals:
+      + Componente creado para poder seleccionar la especie deseada durante el registro.
+      + Este componente es un modal

@@ -40,4 +40,8 @@ export default {
 .rounded {
   border-radius: 16px;
 }
+
+.center {
+  text-align: center;
+}
 </style>
