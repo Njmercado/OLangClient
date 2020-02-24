@@ -1,6 +1,6 @@
 <template>
   <v-dialog v-model="realOpener" persistent width="32em">
-    <v-card style="border-radius: 8px">
+    <v-card style="border-radius: 16px">
       <v-card-title>
         <label class="ml-auto mr-auto" style="color: grey">Search users</label>
       </v-card-title>
@@ -48,6 +48,7 @@
           color="red darken-4"
           @click.native="realOpener = false"
           small
+          rounded
           dark
         >close</v-btn>
       </v-card-actions>

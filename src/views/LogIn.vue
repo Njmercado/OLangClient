@@ -1,13 +1,19 @@
 <template >
   <v-container style="background: linear-gradient(45deg,#7D6AE7,#56A2D5);" fill-height fluid>
-    <v-row style="margin-top: -8em">
-      <v-btn style="margin-left: 1em;" text icon dark @click="goToHome">
-        <v-icon large>mdi-undo-variant</v-icon>
-      </v-btn>
-    </v-row>
-    <v-row style="margin-top: -8em" align="start" justify="center">
+    <!-- Return button -->
+    <v-btn absolute top left text icon dark @click="goToHome">
+      <v-icon large>mdi-undo-variant</v-icon>
+    </v-btn>
+    <!-- -- -->
+
+    <!-- Content button -->
+    <v-row align="start" justify="center">
+
+      <!-- Form area -->
       <v-card style="border-radius:16px; margin-left: 1.5em">
         <v-container>
+
+          <!-- Icon area -->
           <v-row justify="center">
             <v-img
               src="https://i.ibb.co/9nKzPKd/OLa.png"
@@ -16,7 +22,11 @@
               style="margin-top: 1em; margin-bottom: 1em"
             ></v-img>
           </v-row>
+
+          <!-- Form area           -->
           <v-row justify="center" style="margin-bottom: -5vh">
+
+            <!-- Phone area -->
             <v-col cols="11">
               <v-text-field
                 label="phone"
@@ -28,12 +38,16 @@
               ></v-text-field>
             </v-col>
           </v-row>
+
+          <!-- Password area -->
           <v-row justify="center" style="margin-bottom: -5vh">
             <v-col cols="11">
               <v-text-field
                 label="password"
                 color="blue darken-2"
-                prepend-inner-icon="mdi-lock"
+                :append-icon="seePassword? 'mdi-eye': 'mdi-eye-off'"
+                @click:append="seePassword = !seePassword"
+                :type="seePassword? 'text': 'password'"
                 rounded
                 filled
                 dense
@@ -41,6 +55,8 @@
             </v-col>
           </v-row>
         </v-container>
+
+        <!-- Buttons area -->
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-btn
@@ -69,7 +85,8 @@
 export default {
   name: "LogIn",
   data: () => ({
-    recibirCodigoPorOptions: ["phone", "email"]
+    recibirCodigoPorOptions: ["phone", "email"],
+    seePassword: false
   }),
   methods: {
     logIn() {

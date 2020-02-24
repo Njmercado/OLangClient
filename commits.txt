@@ -1,22 +1,17 @@
-Modificaciones
-  General:
-    - Cambiado el ícono de la página
+Problems fixed:
+  SidebarLinks:
+    + Ya no es necesario presionar 2 veces el boton de menú para poder abrir este sidebar.
+Modifications
+  Components:
+    ShowAnimals:
+      + Terminado componente para la seleccion de los animales.
+      + La selección se realiza mediante la selección de la familia y la selección del animal a querer.
   Views:
     SignUp:
-      + Agregado componente para poder realizar la selección de la especie que se desee seleccionar.
-  Components:
-    Setting:
-      + Componente creado para poder realizar configuraciones de la cuenta.
-      + Las configuraciones son:
-        + Cerrar sesion.
-        + Cambiar contraseña.
-        + Cambiar lenguaje.
-    ChangePasswordModal:
-      + Componente creado para poder realizar el cambio de la contraseña.
-    ChangeLanguageModal:
-      + Componente creado para poder realizar el cambio del lenguaje que tenga el actual usuario.
-    SearchUserModal:
-      + Componente creado para poder realizar busquedas de los usuarios actuales y entablar alguna conversacion.
-    ShowAnimals:
-      + Componente creado para poder seleccionar la especie deseada durante el registro.
-      + Este componente es un modal
+      + Ahora es un steper para poder guiar al usuario en el proceso de inscripcion.
+      - Eliminado ícono de la página, ya que no implicaba valor alguno.
+      + Ahora se puede ver la contraseña, si el usuario lo desea.
+    SignIn:
+      + Ahora se puede ver la contraseña, si el usuario lo desea.
+  TODOS:
+    Terminar la parte lógica del signup para poder terminar todo el front y comenzar el back.

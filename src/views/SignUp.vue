@@ -5,78 +5,146 @@
     fill-height
     fluid
   >
-    <v-row style="margin-top: -1em">
-      <v-btn style="margin-left: 1em" text icon dark @click="goToHome">
-        <v-icon large>mdi-undo-variant</v-icon>
-      </v-btn>
-    </v-row>
+    <!-- Return button -->
+    <v-btn absolute top left text icon dark @click="goToHome">
+      <v-icon large>mdi-undo-variant</v-icon>
+    </v-btn>
+    <!-- - -->
+    <!-- App icon area -->
+    <!-- <v-row justify="center" align="center">
+      <v-img src="https://i.ibb.co/9nKzPKd/OLa.png" max-width="100" max-height="100"></v-img>
+    </v-row>-->
+    <!-- Form area -->
     <v-row justify="center" align="center">
-      <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
-        <v-card style="border-radius:15px; margin-left: 1.5em">
-          <v-container>
-            <v-row style="margin-bottom: 2em; margin-top: 2em" justify="center" align="center">
-              <v-img src="https://i.ibb.co/9nKzPKd/OLa.png" max-width="100" max-height="100"></v-img>
-            </v-row>
-            <v-row
-              style="margin-bottom: -1em"
-              justify="center"
-              v-for="(input, index) in inputs"
-              :key="index"
-            >
-              <v-col cols="11">
-                <v-text-field
-                  :label="input.label"
-                  :prepend-inner-icon="input.icon"
-                  v-model="input.value"
-                  :type="input.type"
-                  color="#7D6AE7"
+      <!-- Este col me permite poder mostrar todo el contenido responsive -->
+      <v-col cols="12" xs="10" sm="10" md="8" lg="5" xl="5" align="center" class="ml-7">
+        <v-stepper v-model="step" style="border-radius: 16px;">
+          <v-stepper-header>
+            <v-stepper-step :complete="step > 1" step="1" color="deep-purple darken-1">Language</v-stepper-step>
+            <v-divider></v-divider>
+            <v-stepper-step :complete="step > 2" step="2" color="deep-purple darken-1">Personal data</v-stepper-step>
+            <v-divider></v-divider>
+            <v-stepper-step :complete="step > 3" step="3" color="deep-purple darken-1">Animal</v-stepper-step>
+          </v-stepper-header>
+
+          <v-stepper-items>
+            <!-- Language Selector area -->
+            <v-stepper-content step="1">
+              <v-container class="my-12">
+                <v-row justify="center" class="mb-12">
+                  <kbd
+                    style="padding: .4em; border-radius: 8px; background-color: #EF5350"
+                  >{{chosenLanguage}}</kbd>
+                </v-row>
+                <v-row justify="center">
+                  <v-chip
+                    class="mx-2 my-2"
+                    v-for="(language, index) in avaliableLanguageList"
+                    @click="changeDefaultLanguage(language)"
+                    color="deep-purple lighten-2"
+                    :key="index"
+                    link
+                    dark
+                  >{{language}}</v-chip>
+                </v-row>
+              </v-container>
+              <v-row justify="center" class="mt-8">
+                <v-btn color="deep-purple darken-1" :loading="changingLanguage" text disabled></v-btn>
+              </v-row>
+            </v-stepper-content>
+
+            <v-stepper-content step="2">
+              <v-container class="my-12">
+                <!-- Personal data fields area -->
+                <v-row
+                  style="margin-bottom: -1em"
+                  justify="center"
+                  v-for="(input, index) in inputs"
+                  :key="index"
+                >
+                  <v-col cols="11">
+                    <v-text-field
+                      :label="input.label"
+                      :append-icon="input.type === 'password'? ( seePassword? 'mdi-eye': 'mdi-eye-off' ) : input.icon"
+                      v-model="input.value"
+                      :type="input.type === 'password'? (seePassword? 'text': 'password'): input.type"
+                      color="#7D6AE7"
+                      @click:append="seePassword = !seePassword"
+                      rounded
+                      dense
+                      filled
+                    ></v-text-field>
+                  </v-col>
+                </v-row>
+              </v-container>
+
+              <!-- Action buttons: continue, back -->
+              <v-row justify="center" class="mt-8">
+                <v-btn
+                  class="text-lowercase mb-2"
+                  color="deep-purple darken-1"
+                  @click="step=3"
+                  dark
+                  small
                   rounded
-                  dense
-                  filled
-                ></v-text-field>
-              </v-col>
-            </v-row>
-            <v-row justify="center" style="margin-bottom: -1em">
-              <v-col cols="11">
-                <v-select
-                  label="language"
-                  :items="avaliableLanguageList"
-                  color="#7D6AE7"
-                  dense
+                >continue</v-btn>
+                <v-btn
+                  class="text-lowercase ml-2"
+                  color="grey lighten-0"
+                  @click="step=1"
+                  dark
+                  small
                   rounded
-                  filled
-                ></v-select>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-      </v-col>
-      <v-col cols="12" xs="12" sm="12" md="4" lg="4" xl="4">
-        <v-card style="border-radius: 16px; margin-left: 1.5em; text-align: center">
-          <v-card-title>
-            <v-avatar
-              style="margin-left: auto; margin-right: auto; cursor: pointer"
-              color="blue darken-2"
-              size="128"
-              @click="openAnimalsModal = !openAnimalsModal"
-            >
-              <v-icon dark large>{{ animalIcon }}</v-icon>
-            </v-avatar>
-          </v-card-title>
-          <v-card-text>{{ animalScientificName }}</v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn
-              :loading="loadButtonAnimation"
-              @click="analizarSiUsuarioYaExiste"
-              class="text-lowercase"
-              color="blue darken-2"
-              rounded
-              dark
-            >sign up</v-btn>
-            <v-spacer></v-spacer>
-          </v-card-actions>
-        </v-card>
+                >back</v-btn>
+              </v-row>
+            </v-stepper-content>
+
+            <!-- Animal selection area -->
+            <v-stepper-content step="3">
+              <v-container class="my-12">
+                <v-row justify="center" style="cursor: pointer">
+                  <!-- Select animal -->
+                  <v-avatar
+                    color="deep-purple darken-1"
+                    size="96"
+                    @click="openAnimalsModal = !openAnimalsModal"
+                  >
+                    <v-icon dark large>{{ animalIcon }}</v-icon>
+                  </v-avatar>
+                </v-row>
+
+                <!-- Chosen animal name -->
+                <v-row justify="center" class="my-8">
+                  <label
+                    class="text--secondary"
+                    style="border-radius: 16px; background-color: lightgrey; padding: .8em;"
+                  >{{ animalScientificName }}</label>
+                </v-row>
+              </v-container>
+
+              <!-- Action buttons: signup, back -->
+              <v-row justify="center" align="center" class="mt-8">
+                <v-btn
+                  :loading="loadButtonAnimation"
+                  @click="analizarSiUsuarioYaExiste"
+                  class="text-lowercase my-4 mr-2"
+                  color="deep-purple darken-1"
+                  rounded
+                  dark
+                  small
+                >sign up</v-btn>
+                <v-btn
+                  class="text-lowercase ml-2"
+                  color="grey lighten-0"
+                  @click="step=2"
+                  dark
+                  small
+                  rounded
+                >back</v-btn>
+              </v-row>
+            </v-stepper-content>
+          </v-stepper-items>
+        </v-stepper>
       </v-col>
     </v-row>
     <ShowAnimals :open="openAnimalsModal"></ShowAnimals>
@@ -94,7 +162,9 @@ import ShowAnimals from "../components/ShowAnimals.vue";
 export default {
   name: "SingUp",
   data: () => ({
-    avaliableLanguageList: ["español", "inglés", "chino", "arabe"],
+    step: 1,
+    seePassword: false,
+    avaliableLanguageList: ["Spanish", "English", "Mandarin", "Arabic"],
     loadButtonAnimation: false,
     inputs: [
       {
@@ -107,7 +177,9 @@ export default {
     ],
     animalScientificName: "Canis Lupus Familiaris",
     openAnimalsModal: false,
-    animalIcon: "mdi-dog"
+    animalIcon: "mdi-dog",
+    chosenLanguage: "English",
+    changingLanguage: false
   }),
   methods: {
     analizarSiUsuarioYaExiste() {
@@ -119,9 +191,20 @@ export default {
       //En caso de que los datos sumistrados ya se encuentre activos, entonces debo enviar
       //una pop-up indicando que se ha producido algun error y decir cual fue el
       //correspondiente error.
+      setTimeout(() => {
+        this.$router.push("/principal");
+      }, 3000);
     },
     goToHome() {
       this.$router.push("/");
+    },
+    changeDefaultLanguage(language) {
+      this.chosenLanguage = language;
+      this.changingLanguage = true;
+      setTimeout(() => {
+        this.changingLanguage = false;
+        this.step = 2;
+      }, 8000);
     }
   },
   components: {
