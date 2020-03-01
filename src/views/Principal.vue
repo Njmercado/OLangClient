@@ -1,15 +1,23 @@
 <template>
   <v-container fluid class="mt-auto mb-auto">
+
+    <!-- Information -->
     <v-row justify="center" align="center">
       <v-col cols="1" align-self="center">
+
+        <!-- People i would like to talk -->
         <Chats :chats="getChats"></Chats>
       </v-col>
       <v-col cols="11">
         <v-row align="center">
           <v-col cols="8">
-            <Chat></Chat>
+
+            <!-- Chat area -->
+            <Chat style="height: 32em"></Chat>
           </v-col>
           <v-col cols="4">
+
+            <!-- Current chat animal information -->
             <Info
               name="Canis lupus familiaris"
               :popular_names="['dog', 'friend', 'can', 'chucho', 'tuso', 'choco']"

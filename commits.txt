@@ -1,17 +1,27 @@
-Problems fixed:
-  SidebarLinks:
-    + Ya no es necesario presionar 2 veces el boton de menú para poder abrir este sidebar.
 Modifications
+  General:
+    - Ya no se van a subir scripts en especifico, ahora se va a subir todo un archivo para su respectiva traducción.
   Components:
-    ShowAnimals:
-      + Terminado componente para la seleccion de los animales.
-      + La selección se realiza mediante la selección de la familia y la selección del animal a querer.
+    Options:
+      - Eliminado ícono de scripts, ahora es de un documento.
+    FileChooser:
+      + Componente creado.
+      + Este componente retorna los documentos en base64, tanto imagenes como archivos.
+      + Funciona para poder seleccionar las imagenes que el usuario desea enviar en el chat.
+      + Tambien puede seleccionar archivos, pero no está implementada esa parte completamente.
+    ImageViewer:
+      + Componente creado.
+      + Este componente permite el poder visualizar las imagenes que el usuario quiera del chat en el que se encuentre.
+    Message:
+      + Ahora los mensajes pueden mostrar imagenes.
+      + Cuando se presionar sobre el mensaje, que tenga una imagen, este desplegará un modal para poder ver la imagen correctamente.
   Views:
-    SignUp:
-      + Ahora es un steper para poder guiar al usuario en el proceso de inscripcion.
-      - Eliminado ícono de la página, ya que no implicaba valor alguno.
-      + Ahora se puede ver la contraseña, si el usuario lo desea.
-    SignIn:
-      + Ahora se puede ver la contraseña, si el usuario lo desea.
+    Principal:
+      + Ahora el chat cuentar con fondo de gris para poder visualizar bien los mensajes enviados y recibidos.
   TODOS:
-    Terminar la parte lógica del signup para poder terminar todo el front y comenzar el back.
+    + Poder hacer zoom sobre las imagenes en el ImageViewer.
+    + Reformular la ventana principal, para poder visualizar bien la página en moviles.
+    + Agregar reglas de verificación a los campos de registro.
+    + Ya se puede comenzar a hacer el back
+    + El ImageViewer debe poder tener la cápacidad de realizar un carrousel para mostrar varias, todas, images del chat.
+    + Cambiar a futuro a Dark, o agregar la opción de cambiar de theme, para no dañar los ojos.
