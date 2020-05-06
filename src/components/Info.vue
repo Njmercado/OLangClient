@@ -21,7 +21,7 @@
       <div class="tag">
         <div class="tag--title">Description:</div>
         <div class="tag--content rounded">
-          <div class="tag--content rounded overflow custom--scroll height--info">{{ description }}</div>
+          <div class="tag--content rounded overflow-y custom--scroll height--info">{{ description }}</div>
         </div>
       </div>
       <div class="tag">
@@ -55,7 +55,7 @@ export default {
 }
 
 .height--info {
-  max-height: 6em;
+  max-height: 16vh;
 }
 
 .tag {

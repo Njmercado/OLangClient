@@ -19,8 +19,12 @@ export default {
 </script>
 
 <style>
-.overflow {
+.overflow-y {
   overflow-y: scroll
+}
+
+.overflow-x {
+  overflow-x: scroll
 }
 
 .custom--scroll::-webkit-scrollbar {

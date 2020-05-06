@@ -1,37 +1,34 @@
 <template>
-  <div>
-    <v-card color="#e0e0e0" class="center" style="border-radius: 16px; padding: .8vh">
-      <v-card-title>
-        <v-btn
-          style="margin-left: auto; margin-right: auto"
-          color="green darken-2"
-          @click="openSearchUserModal = !openSearchUserModal"
-          fab
-          small
-          dark
-        >
-          <v-icon>mdi-plus</v-icon>
-        </v-btn>
-      </v-card-title>
-      <div class="custom--scroll overflow height--chats rounded">
-        <v-btn
-          style="margin-top: 1vh; margin-bottom: 1vh; margin-left: .5vw"
-          v-for="(chat, index) in chats"
-          :key="index"
-          :color="chat.color"
-          dark
-          fab
-        >
-          <v-icon>{{ chat.icon }}</v-icon>
-        </v-btn>
-      </div>
-    </v-card>
+  <v-card color="#e0e0e0" class="rounded" justify="center" align="center">
+    <v-card-title>
+      <v-btn
+        class="mx-auto"
+        color="green darken-3"
+        @click="openSearchUserModal = !openSearchUserModal"
+        fab
+        dark
+      >
+        <v-icon large>mdi-plus</v-icon>
+      </v-btn>
+    </v-card-title>
+    <v-divider class="my-4"></v-divider>
+    <v-card-text justify="center" class="rounded mx-auto overflow-y height--chats">
+      <UserToChat
+        v-for="(chat, index) in chats"
+        :key="index"
+        :color="chat.color"
+        :icon="chat.icon"
+        :name="chat.name"
+      ></UserToChat>
+    </v-card-text>
     <SearchUser :open="openSearchUserModal"></SearchUser>
-  </div>
+  </v-card>
 </template>
 
 <script>
 import SearchUser from "../SearchUsersModal";
+import UserToChat from "./UserToChat";
+
 export default {
   name: "Chats",
   props: ["chats"],
@@ -40,13 +37,14 @@ export default {
   }),
   methods: {},
   components: {
-    SearchUser
+    SearchUser,
+    UserToChat
   }
 };
 </script>
 
 <style>
 .height--chats {
-  max-height: 80vh;
+  max-height: 70vh;
 }
 </style>

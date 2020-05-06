@@ -1,11 +1,11 @@
 <template>
   <div>
-    <v-speed-dial v-model="openCloseOptions" transition="scale-transition" direction="right">
+    <v-speed-dial v-model="openCloseOptions" transition="scale-transition" direction="top">
       <template v-slot:activator>
         <v-btn
-          style="width: 3em; height: 3em"
           v-model="openCloseOptions"
           color="purple darken-2"
+          small
           dark
           fab
         >

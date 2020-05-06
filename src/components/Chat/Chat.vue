@@ -1,19 +1,14 @@
 <template>
   <v-card style="border-radius: 16px">
     <v-card-text>
-      <!-- Options -->
-      <v-row justify="start" style="padding: 1vh">
-        <Options @file_document="sendDocumentMessage" @image="sendImageMessage"></Options>
-      </v-row>
-
       <!-- Conversation area -->
       <v-row
         justify="center"
         id="messages"
-        class="mx-4 pa-2 grey lighten-4 rounded"
-        style="height: 25em;"
+        class="mx-1 pa-2 grey lighten-4 rounded"
+        style="min-height: 35em;"
       >
-        <v-col class="height--chat custom--scroll overflow rounded">
+        <v-col class="height--chat custom--scroll overflow-y rounded">
           <Message
             v-for="(message, index) in chatMessages"
             :key="index"
@@ -31,13 +26,18 @@
     </v-card-text>
 
     <v-card-actions>
-      <!-- Send message textfield -->
-      <v-row justify="center">
-        <v-col cols="10">
+      <v-row align="center">
+        <!-- Options -->
+        <v-col cols="1" style="margin-top: -2em; margin-left: 1em">
+          <Options @file_document="sendDocumentMessage" @image="sendImageMessage"></Options>
+        </v-col>
+
+        <!-- Send message textfield -->
+        <v-col cols="9" class="mx-auto">
           <v-text-field
+            style="margin-bottom: -1em; margin-top: -1em"
             v-model="writtenMessage"
             placeholder="message"
-            append-outer-icon="mdi-send"
             @click:append-outer="sendTextMessage"
             @keyup.enter="sendTextMessage"
             rounded
@@ -53,14 +53,14 @@
 <script>
 import Message from "./Message.vue";
 import Options from "../Options.vue";
-import ImageViewer from "./ImageViewer.vue"
+import ImageViewer from "./ImageViewer.vue";
 export default {
   name: "Chat",
   data: () => ({
     writtenMessage: "",
     openImageViewer: false,
-    imageToSeeOnImageViewer: '',
-    chatMessages: [{ message: "", sent: true, type: 'text' }]
+    imageToSeeOnImageViewer: "",
+    chatMessages: [{ message: "", sent: true, type: "text" }]
   }),
   methods: {
     async sendTextMessage() {
@@ -68,25 +68,25 @@ export default {
         await this.chatMessages.push({
           message: this.writtenMessage,
           sent: true,
-          text: 'text'
+          text: "text"
         });
         this.writtenMessage = await "";
       }
     },
     sendDocumentMessage(doc) {
       //console.log(doc);
-      alert(doc)
+      alert(doc);
     },
     async sendImageMessage(image) {
       await this.chatMessages.push({
         image: image,
         sent: true,
-        type: 'image'
+        type: "image"
       });
     },
     openImageOrDocument(image, file, type) {
-      this.openImageViewer = type === 'image' ? !this.openImageViewer : false
-      this.imageToSeeOnImageViewer = image
+      this.openImageViewer = type === "image" ? !this.openImageViewer : false;
+      this.imageToSeeOnImageViewer = image;
     }
   },
   components: {
@@ -99,6 +99,7 @@ export default {
 
 <style>
 .height--chat {
-  max-height: 24em;
+  min-height: 24vh;
+  max-height: 75vh;
 }
 </style>

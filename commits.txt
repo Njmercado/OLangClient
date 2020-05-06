@@ -1,27 +1,6 @@
 Modifications
-  General:
-    - Ya no se van a subir scripts en especifico, ahora se va a subir todo un archivo para su respectiva traducción.
   Components:
-    Options:
-      - Eliminado ícono de scripts, ahora es de un documento.
-    FileChooser:
-      + Componente creado.
-      + Este componente retorna los documentos en base64, tanto imagenes como archivos.
-      + Funciona para poder seleccionar las imagenes que el usuario desea enviar en el chat.
-      + Tambien puede seleccionar archivos, pero no está implementada esa parte completamente.
-    ImageViewer:
-      + Componente creado.
-      + Este componente permite el poder visualizar las imagenes que el usuario quiera del chat en el que se encuentre.
-    Message:
-      + Ahora los mensajes pueden mostrar imagenes.
-      + Cuando se presionar sobre el mensaje, que tenga una imagen, este desplegará un modal para poder ver la imagen correctamente.
-  Views:
-    Principal:
-      + Ahora el chat cuentar con fondo de gris para poder visualizar bien los mensajes enviados y recibidos.
-  TODOS:
-    + Poder hacer zoom sobre las imagenes en el ImageViewer.
-    + Reformular la ventana principal, para poder visualizar bien la página en moviles.
-    + Agregar reglas de verificación a los campos de registro.
-    + Ya se puede comenzar a hacer el back
-    + El ImageViewer debe poder tener la cápacidad de realizar un carrousel para mostrar varias, todas, images del chat.
-    + Cambiar a futuro a Dark, o agregar la opción de cambiar de theme, para no dañar los ojos.
+    * UserToChat:
+        + Componente creado.
+        + Este componente es usado para poder visualizar al usario con el cual se desea tener una conversación.
+        + Muestra el nombre, y el icono del animal correspondiente, como tambien un boton de configuración al lado derecho.
